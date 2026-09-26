@@ -1,0 +1,354 @@
+{
+  "source": "Crossref subject when present; otherwise OpenAlex metadata",
+  "records": {
+    "10.47576/2949-1894.2026.7.7.023": {
+      "doi": "10.47576/2949-1894.2026.7.7.023",
+      "paper_id": "10.47576/2949-1894.2026.7.7.023",
+      "categories": [
+        "Impact of AI and Big Data on Business and Society",
+        "Education, Law, and Society",
+        "Impulse Buying and Technology Impacts"
+      ],
+      "source": "OpenAlex",
+      "source_record_id": "https://openalex.org/W7165016548",
+      "source_url": "https://openalex.org/W7165016548",
+      "queried_at": "2026-09-26T03:51:58.183273+00:00",
+      "status": "success",
+      "error": null
+    },
+    "10.70267/aitia.2026482489": {
+      "doi": "10.70267/aitia.2026482489",
+      "paper_id": "10.70267/aitia.2026482489",
+      "categories": [],
+      "source": null,
+      "source_record_id": null,
+      "source_url": null,
+      "queried_at": "2026-09-26T03:51:59.766327+00:00",
+      "status": "failed",
+      "error": "OpenAlex record has no category metadata."
+    },
+    "10.54254/2755-2721/2026.36624": {
+      "doi": "10.54254/2755-2721/2026.36624",
+      "paper_id": "10.54254/2755-2721/2026.36624",
+      "categories": [
+        "Topic Modeling",
+        "Information Retrieval and Search Behavior",
+        "Expert finding and Q&A systems"
+      ],
+      "source": "OpenAlex",
+      "source_record_id": "https://openalex.org/W7211894598",
+      "source_url": "https://openalex.org/W7211894598",
+      "queried_at": "2026-09-26T03:52:01.166258+00:00",
+      "status": "success",
+      "error": null
+    },
+    "10.20944/preprints202604.0339.v1": {
+      "doi": "10.20944/preprints202604.0339.v1",
+      "paper_id": "10.20944/preprints202604.0339.v1",
+      "categories": [],
+      "source": null,
+      "source_record_id": null,
+      "source_url": null,
+      "queried_at": "2026-09-26T03:52:02.233812+00:00",
+      "status": "failed",
+      "error": "HTTPError: 404 Client Error: Not Found for url: https://api.openalex.org/works/https://doi.org/10.20944/preprints202604.0339.v1"
+    },
+    "10.63646/kpqm1958": {
+      "doi": "10.63646/kpqm1958",
+      "paper_id": "10.63646/kpqm1958",
+      "categories": [
+        "Artificial Intelligence in Healthcare and Education",
+        "Multi-Agent Systems and Negotiation",
+        "Artificial Intelligence in Law"
+      ],
+      "source": "OpenAlex",
+      "source_record_id": "https://openalex.org/W7169132431",
+      "source_url": "https://openalex.org/W7169132431",
+      "queried_at": "2026-09-26T03:52:03.817215+00:00",
+      "status": "success",
+      "error": null
+    },
+    "10.21203/rs.3.rs-10349437/v1": {
+      "doi": "10.21203/rs.3.rs-10349437/v1",
+      "paper_id": "10.21203/rs.3.rs-10349437/v1",
+      "categories": [
+        "Smart Cities and Technologies",
+        "Smart Grid Security and Resilience",
+        "Mobile Crowdsensing and Crowdsourcing"
+      ],
+      "source": "OpenAlex",
+      "source_record_id": "https://openalex.org/W7212394530",
+      "source_url": "https://openalex.org/W7212394530",
+      "queried_at": "2026-09-26T03:52:05.166817+00:00",
+      "status": "success",
+      "error": null
+    },
+    "10.55041/isjem07213": {
+      "doi": "10.55041/isjem07213",
+      "paper_id": "10.55041/isjem07213",
+      "categories": [
+        "Topic Modeling",
+        "Natural Language Processing Techniques",
+        "Multimodal Machine Learning Applications"
+      ],
+      "source": "OpenAlex",
+      "source_record_id": "https://openalex.org/W7160400531",
+      "source_url": "https://openalex.org/W7160400531",
+      "queried_at": "2026-09-26T03:52:06.283705+00:00",
+      "status": "success",
+      "error": null
+    },
+    "10.3390/buildings16132637": {
+      "doi": "10.3390/buildings16132637",
+      "paper_id": "10.3390/buildings16132637",
+      "categories": [
+        "BIM and Construction Integration",
+        "Infrastructure Maintenance and Monitoring",
+        "3D Surveying and Cultural Heritage"
+      ],
+      "source": "OpenAlex",
+      "source_record_id": "https://openalex.org/W7167066088",
+      "source_url": "https://openalex.org/W7167066088",
+      "queried_at": "2026-09-26T03:52:07.184708+00:00",
+      "status": "success",
+      "error": null
+    },
+    "10.2196/preprints.106157": {
+      "doi": "10.2196/preprints.106157",
+      "paper_id": "10.2196/preprints.106157",
+      "categories": [
+        "Artificial Intelligence in Healthcare and Education",
+        "Social Media in Health Education",
+        "Anatomy and Medical Technology"
+      ],
+      "source": "OpenAlex",
+      "source_record_id": "https://openalex.org/W7167407660",
+      "source_url": "https://openalex.org/W7167407660",
+      "queried_at": "2026-09-26T03:52:08.515525+00:00",
+      "status": "success",
+      "error": null
+    },
+    "10.3390/knowledge6030022": {
+      "doi": "10.3390/knowledge6030022",
+      "paper_id": "10.3390/knowledge6030022",
+      "categories": [
+        "Explainable Artificial Intelligence (XAI)",
+        "Artificial Intelligence in Healthcare and Education",
+        "Misinformation and Its Impacts"
+      ],
+      "source": "OpenAlex",
+      "source_record_id": "https://openalex.org/W7204169250",
+      "source_url": "https://openalex.org/W7204169250",
+      "queried_at": "2026-09-26T03:52:09.733954+00:00",
+      "status": "success",
+      "error": null
+    },
+    "10.21203/rs.3.rs-10489777/v1": {
+      "doi": "10.21203/rs.3.rs-10489777/v1",
+      "paper_id": "10.21203/rs.3.rs-10489777/v1",
+      "categories": [
+        "Digital and Cyber Forensics",
+        "Autopsy Techniques and Outcomes",
+        "Forensic and Genetic Research"
+      ],
+      "source": "OpenAlex",
+      "source_record_id": "https://openalex.org/W7213237341",
+      "source_url": "https://openalex.org/W7213237341",
+      "queried_at": "2026-09-26T03:52:10.568994+00:00",
+      "status": "success",
+      "error": null
+    },
+    "10.21203/rs.3.rs-10012178/v1": {
+      "doi": "10.21203/rs.3.rs-10012178/v1",
+      "paper_id": "10.21203/rs.3.rs-10012178/v1",
+      "categories": [
+        "Ethics and Social Impacts of AI",
+        "Big Data and Business Intelligence",
+        "Robotic Process Automation Applications"
+      ],
+      "source": "OpenAlex",
+      "source_record_id": "https://openalex.org/W7164850657",
+      "source_url": "https://openalex.org/W7164850657",
+      "queried_at": "2026-09-26T03:52:11.801717+00:00",
+      "status": "success",
+      "error": null
+    },
+    "10.36887/2415-8453-2026-3-2": {
+      "doi": "10.36887/2415-8453-2026-3-2",
+      "paper_id": "10.36887/2415-8453-2026-3-2",
+      "categories": [
+        "Economic and Business Development Strategies",
+        "Economic and Technological Innovation",
+        "COVID-19, Geopolitics, Technology, Migration"
+      ],
+      "source": "OpenAlex",
+      "source_record_id": "https://openalex.org/W7208746576",
+      "source_url": "https://openalex.org/W7208746576",
+      "queried_at": "2026-09-26T03:52:12.501980+00:00",
+      "status": "success",
+      "error": null
+    },
+    "10.2118/234689-pa": {
+      "doi": "10.2118/234689-pa",
+      "paper_id": "10.2118/234689-pa",
+      "categories": [
+        "Occupational Health and Safety Research",
+        "Risk and Safety Analysis",
+        "Topic Modeling"
+      ],
+      "source": "OpenAlex",
+      "source_record_id": "https://openalex.org/W7172542606",
+      "source_url": "https://openalex.org/W7172542606",
+      "queried_at": "2026-09-26T03:52:13.451375+00:00",
+      "status": "success",
+      "error": null
+    },
+    "10.36948/ijfmr.2026.v08i04.85777": {
+      "doi": "10.36948/ijfmr.2026.v08i04.85777",
+      "paper_id": "10.36948/ijfmr.2026.v08i04.85777",
+      "categories": [
+        "Topic Modeling",
+        "Multimodal Machine Learning Applications",
+        "Information Retrieval and Search Behavior"
+      ],
+      "source": "OpenAlex",
+      "source_record_id": "https://openalex.org/W7203529388",
+      "source_url": "https://openalex.org/W7203529388",
+      "queried_at": "2026-09-26T03:52:14.851339+00:00",
+      "status": "success",
+      "error": null
+    },
+    "10.52060/juptik.v4i1.4318": {
+      "doi": "10.52060/juptik.v4i1.4318",
+      "paper_id": "10.52060/juptik.v4i1.4318",
+      "categories": [
+        "Edcuational Technology Systems",
+        "Educational Methods and Technology",
+        "Topic Modeling"
+      ],
+      "source": "OpenAlex",
+      "source_record_id": "https://openalex.org/W7167331296",
+      "source_url": "https://openalex.org/W7167331296",
+      "queried_at": "2026-09-26T03:52:15.584540+00:00",
+      "status": "success",
+      "error": null
+    },
+    "10.21079/11681/50309": {
+      "doi": "10.21079/11681/50309",
+      "paper_id": "10.21079/11681/50309",
+      "categories": [],
+      "source": null,
+      "source_record_id": null,
+      "source_url": null,
+      "queried_at": "2026-09-26T03:52:16.201350+00:00",
+      "status": "failed",
+      "error": "OpenAlex record has no category metadata."
+    },
+    "10.1007/s10278-026-02086-9": {
+      "doi": "10.1007/s10278-026-02086-9",
+      "paper_id": "10.1007/s10278-026-02086-9",
+      "categories": [
+        "Dental Radiography and Imaging",
+        "Artificial Intelligence in Healthcare and Education",
+        "Radiomics and Machine Learning in Medical Imaging"
+      ],
+      "source": "OpenAlex",
+      "source_record_id": "https://openalex.org/W7168153282",
+      "source_url": "https://openalex.org/W7168153282",
+      "queried_at": "2026-09-26T03:52:17.620169+00:00",
+      "status": "success",
+      "error": null
+    },
+    "10.21203/rs.3.rs-10423755/v1": {
+      "doi": "10.21203/rs.3.rs-10423755/v1",
+      "paper_id": "10.21203/rs.3.rs-10423755/v1",
+      "categories": [
+        "BIM and Construction Integration",
+        "Topic Modeling",
+        "Advanced Graph Neural Networks"
+      ],
+      "source": "OpenAlex",
+      "source_record_id": "https://openalex.org/W7204262160",
+      "source_url": "https://openalex.org/W7204262160",
+      "queried_at": "2026-09-26T03:52:18.565366+00:00",
+      "status": "success",
+      "error": null
+    },
+    "10.1093/sleep/zsag091.0346": {
+      "doi": "10.1093/sleep/zsag091.0346",
+      "paper_id": "10.1093/sleep/zsag091.0346",
+      "categories": [
+        "Artificial Intelligence in Healthcare and Education",
+        "Machine Learning in Healthcare",
+        "Topic Modeling"
+      ],
+      "source": "OpenAlex",
+      "source_record_id": "https://openalex.org/W7160645433",
+      "source_url": "https://openalex.org/W7160645433",
+      "queried_at": "2026-09-26T03:52:19.967032+00:00",
+      "status": "success",
+      "error": null
+    },
+    "10.63125/gseh0k17": {
+      "doi": "10.63125/gseh0k17",
+      "paper_id": "10.63125/gseh0k17",
+      "categories": [
+        "Supply Chain Resilience and Risk Management",
+        "Software System Performance and Reliability",
+        "Information and Cyber Security"
+      ],
+      "source": "OpenAlex",
+      "source_record_id": "https://openalex.org/W7202164376",
+      "source_url": "https://openalex.org/W7202164376",
+      "queried_at": "2026-09-26T03:52:20.883470+00:00",
+      "status": "success",
+      "error": null
+    },
+    "10.28932/jutisi.v12i2.13099": {
+      "doi": "10.28932/jutisi.v12i2.13099",
+      "paper_id": "10.28932/jutisi.v12i2.13099",
+      "categories": [
+        "Information Retrieval and Data Mining",
+        "AI in Service Interactions",
+        "Edcuational Technology Systems"
+      ],
+      "source": "OpenAlex",
+      "source_record_id": "https://openalex.org/W7205001866",
+      "source_url": "https://openalex.org/W7205001866",
+      "queried_at": "2026-09-26T03:52:22.266754+00:00",
+      "status": "success",
+      "error": null
+    },
+    "10.21203/rs.3.rs-10178277/v1": {
+      "doi": "10.21203/rs.3.rs-10178277/v1",
+      "paper_id": "10.21203/rs.3.rs-10178277/v1",
+      "categories": [
+        "Stock Market Forecasting Methods",
+        "Financial Markets and Investment Strategies",
+        "Forecasting Techniques and Applications"
+      ],
+      "source": "OpenAlex",
+      "source_record_id": "https://openalex.org/W7167918097",
+      "source_url": "https://openalex.org/W7167918097",
+      "queried_at": "2026-09-26T03:52:23.183861+00:00",
+      "status": "success",
+      "error": null
+    },
+    "10.20944/preprints202608.1849.v1": {
+      "doi": "10.20944/preprints202608.1849.v1",
+      "paper_id": "10.20944/preprints202608.1849.v1",
+      "categories": [
+        "Ferroelectric and Negative Capacitance Devices",
+        "Parallel Computing and Optimization Techniques",
+        "Advanced Memory and Neural Computing"
+      ],
+      "source": "OpenAlex",
+      "source_record_id": "https://openalex.org/W7204230391",
+      "source_url": "https://openalex.org/W7204230391",
+      "queried_at": "2026-09-26T03:52:25.267710+00:00",
+      "status": "success",
+      "error": null
+    }
+  },
+  "queried_at": "2026-09-26T03:54:34.100087+00:00"
+}

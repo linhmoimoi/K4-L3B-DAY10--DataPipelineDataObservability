@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import hashlib
+import json
 from pathlib import Path
 from typing import Any
 
@@ -91,6 +93,38 @@ class LocalEmbeddingIndex:
         documents = cls._build_documents(df)
         persist_path = settings.paths.chroma_dir
         persist_path.mkdir(parents=True, exist_ok=True)
+        manifest_path = embeddings_output_path or settings.paths.embeddings_json
+        fingerprint_payload = {
+            "documents": documents,
+            "embedding_model": settings.embedding_model,
+            "collection_name": collection_name,
+            "configuration": {"hnsw": {"space": "cosine"}},
+        }
+        fingerprint = hashlib.sha256(
+            json.dumps(fingerprint_payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+        ).hexdigest()
+
+        # Reuse only a manifest and persistent collection that both match the
+        # current corpus, model, and collection settings.
+        if manifest_path.is_file():
+            try:
+                previous = read_json(manifest_path)
+                if (
+                    previous.get("fingerprint") == fingerprint
+                    and previous.get("embedding_model") == settings.embedding_model
+                    and previous.get("collection_name") == collection_name
+                    and previous.get("documents") == documents
+                ):
+                    existing_client = chromadb.PersistentClient(path=str(persist_path))
+                    existing_collection = existing_client.get_collection(name=collection_name)
+                    if existing_collection.count() == len(documents):
+                        stored = existing_collection.get(include=["documents"])
+                        expected = {item["record_id"]: item["content"] for item in documents}
+                        actual = dict(zip(stored.get("ids", []), stored.get("documents", []), strict=False))
+                        if actual == expected:
+                            return cls(settings, collection_name, documents, persist_path)
+            except Exception:
+                pass
 
         embedding_model = MiniLMEmbeddings(settings.embedding_model)
         client = chromadb.PersistentClient(path=str(persist_path))
@@ -110,7 +144,6 @@ class LocalEmbeddingIndex:
             metadatas=[document["metadata"] for document in documents],
         )
 
-        manifest_path = embeddings_output_path or settings.paths.embeddings_json
         write_json(
             manifest_path,
             {
@@ -118,6 +151,7 @@ class LocalEmbeddingIndex:
                 "embedding_model": settings.embedding_model,
                 "persist_path": str(persist_path),
                 "collection_name": collection_name,
+                "fingerprint": fingerprint,
                 "documents": documents,
             },
         )

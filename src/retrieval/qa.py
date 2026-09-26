@@ -17,20 +17,39 @@ class AnswerResult:
     retrieved_titles: list[str]
 
 
-def _extract_answer(question: str, top_result: SearchResult) -> str:
+def _extract_answer(question: str, top_result: SearchResult, question_type: str | None = None) -> str:
     lowered = question.lower()
     metadata = top_result.metadata
-    if "who authored" in lowered or "list the authors" in lowered:
-        return metadata["authors_joined"]
-    if "when was" in lowered or "publication date" in lowered or "published on" in lowered:
-        return metadata["published"]
-    if "what categories" in lowered:
-        return metadata["categories_joined"]
-    return first_sentence(metadata["summary"])
+    kind = question_type
+    if kind is None:
+        if any(term in lowered for term in ("author", "authored")):
+            kind = "authors"
+        elif any(term in lowered for term in ("when was", "publication date", "published on")):
+            kind = "date"
+        elif any(term in lowered for term in ("categor", "subject area", "field of study")):
+            kind = "categories"
+        else:
+            kind = "summary"
+    if kind == "authors":
+        return str(metadata.get("authors_joined") or "Author metadata is unavailable for this paper.")
+    if kind == "date":
+        return str(metadata.get("published") or "Publication date metadata is unavailable for this paper.")
+    if kind == "categories":
+        return str(metadata.get("categories_joined") or "Category metadata is unavailable for this paper.")
+    if kind == "summary":
+        summary = metadata.get("summary")
+        return first_sentence(str(summary)) if summary else "Summary metadata is unavailable for this paper."
+    raise ValueError(f"Unsupported question_type: {question_type}")
 
 
-def answer_question(question: str, settings: Settings, index: LocalEmbeddingIndex, top_k: int | None = None) -> AnswerResult:
-    title_match = re.search(r"'([^']+)'", question)
+def answer_question(
+    question: str,
+    settings: Settings,
+    index: LocalEmbeddingIndex,
+    top_k: int | None = None,
+    question_type: str | None = None,
+) -> AnswerResult:
+    title_match = re.search(r"['\"]([^'\"]+)['\"]", question)
     exact = index.lookup(title_match.group(1)) if title_match else None
     retrieved = index.search(question, top_k=top_k)
     if exact:
@@ -46,7 +65,7 @@ def answer_question(question: str, settings: Settings, index: LocalEmbeddingInde
     if not retrieved:
         answer = "I don't know from the indexed corpus."
     else:
-        answer = _extract_answer(question, retrieved[0])
+        answer = _extract_answer(question, retrieved[0], question_type)
     return AnswerResult(
         question=question,
         answer=answer,

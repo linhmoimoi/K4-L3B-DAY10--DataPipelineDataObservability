@@ -61,12 +61,12 @@ Return:
     try:
         llm = build_llm(settings=settings, temperature=0.0).with_structured_output(JudgeVerdict)
         return llm.invoke(prompt)
-    except Exception:
+    except Exception as exc:
         score = 5 if _token_f1(reference, prediction) >= 0.95 else 3 if _token_f1(reference, prediction) >= 0.5 else 1
         return JudgeVerdict(
             score=score,
             correct=score >= 3,
-            reasoning="Fallback heuristic judge used because the LLM evaluator was unavailable.",
+            reasoning=f"Fallback heuristic judge used because the LLM evaluator was unavailable ({type(exc).__name__}).",
         )
 
 
@@ -111,7 +111,9 @@ def evaluate_pipeline(
     answers: list[dict[str, Any]] = []
 
     for item in test_set:
-        result = answer_question(item["question"], settings=settings, index=index)
+        result = answer_question(
+            item["question"], settings=settings, index=index, question_type=item.get("question_type")
+        )
         judge = _judge_answer(settings, item["question"], item["ground_truth"], result.answer)
         retrieval_hit = any(doc_id in item["ground_truth_doc_ids"] for doc_id in result.retrieved_doc_ids)
         answers.append(
@@ -137,6 +139,14 @@ def evaluate_pipeline(
         "judge_accuracy": mean(1.0 if item["judge"]["correct"] else 0.0 for item in answers),
         "mean_judge_score": mean(item["judge"]["score"] for item in answers),
     }
+    fallback_reasons = sorted({
+        item["judge"]["reasoning"] for item in answers
+        if "Fallback heuristic judge" in item["judge"].get("reasoning", "")
+    })
+    summary["judge_mode"] = "heuristic_fallback" if fallback_reasons else "llm"
+    if fallback_reasons:
+        summary["judge_fallback_reason"] = "; ".join(fallback_reasons)
+        summary["judge_fallback_affected_metrics"] = ["judge_accuracy", "mean_judge_score"]
     summary["ragas"] = _run_ragas(settings, answers)
 
     bundle = EvaluationBundle(summary=summary, answers=answers)

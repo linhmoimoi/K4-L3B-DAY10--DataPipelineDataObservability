@@ -1,0 +1,89 @@
+{
+  "success": true,
+  "stage": "test",
+  "expectations": [
+    {
+      "name": "ExpectTableRowCountToBeBetween",
+      "column": null,
+      "status": "passed",
+      "success": true,
+      "result": {
+        "observed_value": 24
+      }
+    },
+    {
+      "name": "ExpectColumnValuesToNotBeNull",
+      "column": "paper_id",
+      "status": "passed",
+      "success": true,
+      "result": {
+        "element_count": 24,
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0
+      }
+    },
+    {
+      "name": "ExpectColumnValuesToNotBeNull",
+      "column": "title",
+      "status": "passed",
+      "success": true,
+      "result": {
+        "element_count": 24,
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0
+      }
+    },
+    {
+      "name": "ExpectColumnValuesToNotBeNull",
+      "column": "text_for_embedding",
+      "status": "passed",
+      "success": true,
+      "result": {
+        "element_count": 24,
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0
+      }
+    },
+    {
+      "name": "ExpectColumnValuesToBeUnique",
+      "column": "paper_id",
+      "status": "passed",
+      "success": true,
+      "result": {
+        "element_count": 24,
+        "missing_count": 0,
+        "missing_percent": 0.0,
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0,
+        "unexpected_percent_nonmissing": 0.0,
+        "unexpected_percent_total": 0.0
+      }
+    },
+    {
+      "name": "ExpectColumnValueLengthsToBeBetween",
+      "column": "summary",
+      "status": "passed",
+      "success": true,
+      "result": {
+        "element_count": 24,
+        "missing_count": 0,
+        "missing_percent": 0.0,
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0,
+        "unexpected_percent_nonmissing": 0.0,
+        "unexpected_percent_total": 0.0
+      }
+    }
+  ],
+  "freshness": {
+    "threshold_days": 180,
+    "stale_rows": 0,
+    "total_rows": 24,
+    "stale_ratio": 0.0,
+    "stale_percent": 0.0,
+    "max_stale_ratio": 0.25,
+    "is_fresh": true,
+    "latest_published": "2026-09-15",
+    "oldest_published": "2026-04-01"
+  }
+}
