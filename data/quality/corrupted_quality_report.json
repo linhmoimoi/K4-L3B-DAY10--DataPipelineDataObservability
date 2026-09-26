@@ -1,0 +1,89 @@
+{
+  "success": false,
+  "stage": "corrupted",
+  "expectations": [
+    {
+      "name": "ExpectTableRowCountToBeBetween",
+      "column": null,
+      "status": "passed",
+      "success": true,
+      "result": {
+        "observed_value": 21
+      }
+    },
+    {
+      "name": "ExpectColumnValuesToNotBeNull",
+      "column": "paper_id",
+      "status": "passed",
+      "success": true,
+      "result": {
+        "element_count": 21,
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0
+      }
+    },
+    {
+      "name": "ExpectColumnValuesToNotBeNull",
+      "column": "title",
+      "status": "passed",
+      "success": true,
+      "result": {
+        "element_count": 21,
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0
+      }
+    },
+    {
+      "name": "ExpectColumnValuesToNotBeNull",
+      "column": "text_for_embedding",
+      "status": "passed",
+      "success": true,
+      "result": {
+        "element_count": 21,
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0
+      }
+    },
+    {
+      "name": "ExpectColumnValuesToBeUnique",
+      "column": "paper_id",
+      "status": "failed",
+      "success": false,
+      "result": {
+        "element_count": 21,
+        "missing_count": 0,
+        "missing_percent": 0.0,
+        "unexpected_count": 4,
+        "unexpected_percent": 19.047619047619047,
+        "unexpected_percent_nonmissing": 19.047619047619047,
+        "unexpected_percent_total": 19.047619047619047
+      }
+    },
+    {
+      "name": "ExpectColumnValueLengthsToBeBetween",
+      "column": "summary",
+      "status": "failed",
+      "success": false,
+      "result": {
+        "element_count": 21,
+        "missing_count": 0,
+        "missing_percent": 0.0,
+        "unexpected_count": 6,
+        "unexpected_percent": 28.57142857142857,
+        "unexpected_percent_nonmissing": 28.57142857142857,
+        "unexpected_percent_total": 28.57142857142857
+      }
+    }
+  ],
+  "freshness": {
+    "threshold_days": 180,
+    "stale_rows": 6,
+    "total_rows": 21,
+    "stale_ratio": 0.2857142857142857,
+    "stale_percent": 28.57142857142857,
+    "max_stale_ratio": 0.25,
+    "is_fresh": false,
+    "latest_published": "2026-08-27",
+    "oldest_published": "2025-09-26"
+  }
+}

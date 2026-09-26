@@ -1,15 +1,10 @@
 {
   "samples": 10,
   "retrieval_hit_rate": 1.0,
-  "mean_token_f1": 1.0,
-  "judge_accuracy": 1.0,
-  "mean_judge_score": 5,
-  "judge_mode": "heuristic_fallback",
-  "judge_fallback_reason": "Fallback heuristic judge used because the LLM evaluator was unavailable (RuntimeError).",
-  "judge_fallback_affected_metrics": [
-    "judge_accuracy",
-    "mean_judge_score"
-  ],
+  "mean_token_f1": 0.39045783373362836,
+  "judge_accuracy": 0.9,
+  "mean_judge_score": 4.4,
+  "judge_mode": "llm",
   "ragas": {
     "skipped": "Set RUN_RAGAS=1 to enable the slower Ragas pass."
   }

@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 from datetime import date, datetime
+from html import unescape
+import re
 from typing import Any
 
 import pandas as pd
@@ -32,7 +34,11 @@ _COLUMNS = [
 def _clean_text(value: Any) -> str:
     if not isinstance(value, str):
         return ""
-    return normalize_whitespace(value)
+    # Crossref abstracts can contain escaped JATS/XML (sometimes double
+    # escaped). Decode before stripping tags so markup never reaches the index.
+    cleaned = unescape(unescape(value))
+    cleaned = re.sub(r"<!--.*?-->|<[^>]*>", " ", cleaned, flags=re.DOTALL)
+    return normalize_whitespace(unescape(cleaned))
 
 
 def _clean_text_list(value: Any) -> list[str]:

@@ -141,8 +141,8 @@ def load_settings(project_dir: Path | None = None) -> Settings:
 
 def normalized_provider(settings: Settings) -> str:
     provider = settings.llm_provider.strip().lower().replace(" ", "").replace("-", "")
-    if provider == "anthorpic":
-        return "anthropic"
+    if provider in {"gemini", "google", "googlegemini"}:
+        return "google"
     if provider == "customllm":
         return "custom"
     return provider
@@ -150,10 +150,10 @@ def normalized_provider(settings: Settings) -> str:
 
 def require_llm_credentials(settings: Settings) -> None:
     provider = normalized_provider(settings)
-    if provider == "gemini":
+    if provider == "google":
         if settings.google_api_key:
             return
-        raise RuntimeError("GOOGLE_API_KEY is required when LLM_PROVIDER=gemini.")
+        raise RuntimeError("GOOGLE_API_KEY is required when LLM_PROVIDER=google (Gemini).")
     if provider == "openai":
         if settings.openai_api_key:
             return
@@ -173,5 +173,5 @@ def require_llm_credentials(settings: Settings) -> None:
             return
         raise RuntimeError("CUSTOM_LLM_BASE_URL is required when LLM_PROVIDER=custom.")
     raise RuntimeError(
-        "Unsupported LLM_PROVIDER. Expected one of: openai, gemini, anthropic, openrouter, ollama, custom, mock."
+        "Unsupported LLM_PROVIDER. Expected one of: mock, google (gemini), openai, anthropic, openrouter, ollama, custom."
     )

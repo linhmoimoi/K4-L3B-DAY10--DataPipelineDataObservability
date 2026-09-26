@@ -281,3 +281,30 @@ Mô tả một vấn đề phát sinh khi ghép các module trong pipeline và c
 - [ ] Các đường dẫn báo cáo và artifact truy cập được.
 - [ ] Mỗi thành viên đã hoàn thành báo cáo vai trò riêng.
 - [ ] Không có `.env`, API key, token hoặc secret trong source, report, log hay ảnh.
+
+## 14. Verified updates for rubric criteria 3 and 5 (2026-09-26)
+
+### Criterion 3: cleaning and pre-embed modeling
+
+| Check | Verified result |
+| --- | --- |
+| Raw and clean data | 24 input records; 24 rows in `data/clean/papers_clean.csv` and 24 JSON records. |
+| Deduplication | No duplicate `paper_id` in clean data; a synthetic duplicate-ID check returns one row. |
+| Text cleaning | Whitespace normalized; HTML entities decoded; XML/JATS markup stripped, including nested escaped markup (synthetic title and summary check). |
+| Age | `age_days` is the UTC calendar-day difference between publication and run dates; verified using run date 2026-09-26. |
+| Embedding text | Every row has exactly these five sections in order: `Title`, `Authors`, `Published`, `Categories`, `Summary`. Rebuilding twice with the same records and run date produces equal frames. |
+| ChromaDB | `papers-baseline`, `sentence-transformers/all-MiniLM-L6-v2`, 24 indexed documents; checked against the embedding manifest and persisted collection. |
+
+Category coverage remains **21/24**. Crossref has no `subject` categories for these three DOI records. The traceable OpenAlex enrichment in `data/raw/category_enrichment.json` failed: two records have no category metadata and one DOI lookup returned 404. No categories were inferred or invented.
+
+| DOI | Result from the enrichment source |
+| --- | --- |
+| `10.70267/aitia.2026482489` | OpenAlex record has no category metadata. |
+| `10.20944/preprints202604.0339.v1` | No matching OpenAlex record (404). |
+| `10.21079/11681/50309` | OpenAlex record has no category metadata. |
+
+### Criterion 5: multi-provider QA agent
+
+The router accepts `mock`, `google`/`gemini`, `openai`, and `anthropic`; `gemini` normalizes to `google`. Missing credentials produce an error naming the required variable (`GOOGLE_API_KEY`, `OPENAI_API_KEY`, or `ANTHROPIC_API_KEY`). The mock runs without a key, answers supported metadata questions with an exact source citation, and declines unsupported questions or missing metadata. For live providers, QA validates citations against retrieved documents; author, date, and category answers must contain the exact source metadata, while summaries and other answers must copy one literal span from cited context. The tool-using agent applies the same checks and declines an answer if no search/lookup tool returned its cited document.
+
+The configured provider/model are `LLM_PROVIDER=gemini` and `LLM_MODEL=gemini-2.5-flash`. No provider API key was available in the verification environment, so no live Gemini/OpenAI/Anthropic request was run. The phase-1 pipeline was rerun successfully with `LLM_PROVIDER=mock`; its QA outputs are deterministic mock answers grounded in retrieved corpus metadata, not live-provider answers. The resulting evaluator artifact has 10 samples, retrieval hit rate 1.0, and token F1 0.5558. `judge_accuracy=0.7` and `mean_judge_score=2.4` are from **heuristic fallback** (the LLM evaluator returned `NotImplementedError` under mock); they are not LLM-evaluator results. Five focused `unittest` cases passed for provider routing, missing keys, mock answers, citation/metadata validation, and mandatory tool evidence. Against the persisted 24-document Chroma index, all 10 mock QA answers match `data/results/baseline_answers.json`, and an unsupported question is declined. The live-provider branch was checked with a stubbed model only; factual quality from a real provider remains unverified without a valid key.

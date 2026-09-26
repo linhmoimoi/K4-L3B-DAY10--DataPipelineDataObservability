@@ -12,7 +12,7 @@ def build_llm(settings: Settings, temperature: float = 0.0):
     provider = normalized_provider(settings)
     require_llm_credentials(settings)
 
-    if provider == "gemini":
+    if provider == "google":
         return ChatGoogleGenerativeAI(
             model=settings.model_name,
             google_api_key=settings.google_api_key,

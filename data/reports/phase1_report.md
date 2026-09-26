@@ -38,12 +38,10 @@
 ## Evaluation metrics
 
 - retrieval_hit_rate: 1.0
-- mean_token_f1: 1.0
-- judge_accuracy: 1.0
-- mean_judge_score: 5
-- Judge mode: heuristic_fallback
-- Judge fallback reason: Fallback heuristic judge used because the LLM evaluator was unavailable (RuntimeError).
-- Metrics affected by heuristic fallback: judge_accuracy, mean_judge_score
+- mean_token_f1: 0.39045783373362836
+- judge_accuracy: 0.9
+- mean_judge_score: 4.4
+- Judge mode: llm
 
 ## Artifacts
 
