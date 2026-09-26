@@ -1,0 +1,250 @@
+{
+  "input_rows": 24,
+  "output_rows": 21,
+  "corruptions": [
+    {
+      "type": "drop_latest_records",
+      "parameters": {
+        "fraction": 0.2,
+        "rounding": "ceil",
+        "sort": "published descending, paper_id ascending, stable input order",
+        "requested_drop_count": 5
+      },
+      "affected_rows": 5,
+      "affected_paper_ids": [
+        "10.21203/rs.3.rs-10489777/v1",
+        "10.70267/aitia.2026482489",
+        "10.21203/rs.3.rs-10349437/v1",
+        "10.54254/2755-2721/2026.36624",
+        "10.36887/2415-8453-2026-3-2"
+      ],
+      "changes": [
+        {
+          "paper_id": "10.21203/rs.3.rs-10489777/v1",
+          "published": "2026-09-15",
+          "reason": "Removed as one of the most recently published records."
+        },
+        {
+          "paper_id": "10.70267/aitia.2026482489",
+          "published": "2026-09-13",
+          "reason": "Removed as one of the most recently published records."
+        },
+        {
+          "paper_id": "10.21203/rs.3.rs-10349437/v1",
+          "published": "2026-09-12",
+          "reason": "Removed as one of the most recently published records."
+        },
+        {
+          "paper_id": "10.54254/2755-2721/2026.36624",
+          "published": "2026-09-08",
+          "reason": "Removed as one of the most recently published records."
+        },
+        {
+          "paper_id": "10.36887/2415-8453-2026-3-2",
+          "published": "2026-09-04",
+          "reason": "Removed as one of the most recently published records."
+        }
+      ]
+    },
+    {
+      "type": "blank_summary",
+      "parameters": {
+        "fraction": 0.2,
+        "rounding": "ceil",
+        "target_count": 4
+      },
+      "affected_rows": 4,
+      "affected_paper_ids": [
+        "10.1007/s10278-026-02086-9",
+        "10.1093/sleep/zsag091.0346",
+        "10.20944/preprints202604.0339.v1",
+        "10.20944/preprints202608.1849.v1"
+      ],
+      "changes": [
+        {
+          "paper_id": "10.1007/s10278-026-02086-9",
+          "before": "Abstract Diagnosing jawbone lesions in oral and maxillofacial radiology remains challenging due to overlapping radiological features and the need for integrated clinical reasoning. This study aimed to develop and validate JADE-Plus, a novel multimodal, agent-controlled retrieval-augmented generation (RAG) framework for diagnostic decision support in jawbone lesion assessment. JADE-Plus was implemented as a cloud-based, tablet-optimized system integrating a vision-language model (VLM) for panoramic radiograph analysis, a knowledge-grounded RAG module, and an agentic verification loop for diagnostic fusion and re-ranking. The system was evaluated using 40 representative jawbone lesion cases and compared with JADE, GPT-5.4, GPT-5.4 VLM, and ORAD. Performance was assessed using Top-1 and Top-3 accuracy, ablation and statistical analyses, intra-model stability, and response time. JADE-Plus achieved the highest diagnostic performance, with a Top-1 accuracy of 90% (36/40; 95% CI 76–97%) and a Top-3 accuracy of 100%, with no missed diagnoses. Cochran’s Q test demonstrated significant differences among models for both Top-3 correctness ( Q = 25.66, p Q = 27.55, p",
+          "after": ""
+        },
+        {
+          "paper_id": "10.1093/sleep/zsag091.0346",
+          "before": "Abstract Introduction While Large Language Models (LLMs) offer generative capabilities, generic models often lack domain-specific grounding, leading to hallucinations in high-stakes contexts. However, LLMs can serve as clinical decision support tools if augmented with specific domain data. This study evaluates the utility of Retrieval-Augmented Generation (RAG) applied to open-source LLMs, utilizing a curated knowledge base of authoritative sleep medicine textbooks, to quantify improvement in performance. Methods We evaluated four open-source models—Llama-70B, Llama-8B, Qwen-14B, and Qwen-235B, linked to a RAG system indexing five standard textbooks, including ICSD-3 TR. Models were tested on sleep board–style MCQs and clinical vignettes diagnostic accuracy. Performance was assessed across nine configurations derived from three factors: RAG pipeline complexity (Plain vs. Complicated), textbook preprocessing (Uncleaned vs. Cleaned/TOC-aligned), and retriever type (Dense-only vs. Hybrid). Metrics included MCQ Accuracy and the rates at which the correct diagnosis appeared as the top result or within the top 5 differential diagnosis lists for vignettes. Results RAG consistently outperformed the no-RAG baseline, yielding absolute performance gains of 5.6%–10.7% for MCQs and 8.1%–10.2% for the top diagnosis in cases across all models. For MCQs, Qwen-235B achieved the highest accuracy of 87.3% (vs. 81.7% baseline) using the Plain RAG configuration with Cleaned (TOC-aligned) Hybrid retrieval. Llama-70B followed with 83.6% in the same configuration. For case vignettes, Qwen-235B achieved a correct top diagnosis rate of 66.3% and a correct diagnosis rate within the top 5 differential diagnosis lists of 90.8% using Cleaned Hybrid retrieval configurations. Hybrid retrieval (Dense + Sparse) consistently surpassed Dense-only methods. Notably, while larger models benefited from Cleaned text, smaller models (e.g., Qwen-14B) achieved higher top diagnosis rates with Uncleaned text (57.1% vs. 51.0%), suggesting a dependency on redundant context in lower-parameter settings. Conclusion RAG significantly enhances knowledge performance of open-source LLMs in sleep medicine. Hybrid retrieval and curated, TOC-aligned knowledge bases yield optimal results for large models, whereas smaller models benefit from the redundancy of uncleaned text. These findings suggest that RAG systems can augment LLMs in domain specific knowledge for clinical decision support. Support (if any)",
+          "after": ""
+        },
+        {
+          "paper_id": "10.20944/preprints202604.0339.v1",
+          "before": "This study investigates a method that integrates retrieval-augmented mechanisms into large language model agents for scientific literature review generation. The approach addresses the limitations of traditional review models that rely on parametric knowledge with insufficient timeliness and limited coverage. Incorporating external document retrieval and dynamic information fusion into the generation process enhances the accuracy and completeness of the output. The overall framework consists of query encoding, semantic retrieval, document filtering, knowledge fusion, language modeling, task planning, memory storage, and reinforcement optimization, forming a closed loop of retrieval, understanding, and generation. Relevant document fragments are first retrieved through semantic vector search to ensure comprehensive and reliable information sources. These external representations are then integrated with the internal embeddings of the language model through weighted fusion, which preserves fluency while maintaining factual grounding. The task planning module constrains logical flow and text structure, and reinforcement learning optimization further improves relevance and consistency. Comparative experiments on large-scale scientific literature datasets demonstrate that the method outperforms existing approaches on ROUGE, BLEU, METEOR, and diversity metrics, validating its effectiveness and practicality. The findings show that combining retrieval augmentation with agent architectures can significantly improve coverage, accuracy, and language quality in review generation, providing a feasible solution for knowledge organization in complex literature environments.",
+          "after": ""
+        },
+        {
+          "paper_id": "10.20944/preprints202608.1849.v1",
+          "before": "Selecting an encoding configuration for Hyperdimensional Computing (HDC) determines whether a model fits the memory budget of an Internet of Things (IoT) device, yet the knowledge needed to make that choice is dispersed across thousands of papers in a form no optimizer can query. The configuration space is large and each evaluation is expensive, so exhaustive search is infeasible; sequential optimizers are the standard remedy, but they begin from an uninformed prior and spend early evaluations exploring blindly. We present an agentic Retrieval-Augmented Generation (RAG) recommendation system that converts the HDC literature into an informed starting point for this search. A corpus of 1,518 HDC papers is indexed multimodally. A vision-language model (VLM) describes 1,755 figure regions extracted from source PDFs, making plotted evidence such as accuracy against dimension curves retrievable alongside prose and tables. Given a task profile stating the dataset characteristics, target hardware, objectives, and memory budget, the agent retrieves evidence under an allocation that reserves context for figures, and returns an encoding configuration with supporting citations. That configuration seeds the first trial of a constrained multi-objective search over accuracy and inference memory, which then refines it, and feasibility is enforced by external measurement rather than by the model. On network intrusion detection (CICIDS2017) and bearing fault diagnosis (CWRU), the literature-grounded start raised the hypervolume of the recovered Pareto front by 17.4% and 19.1% over an identically budgeted search from a random draw, at no additional evaluation cost. A natural extension is to let the system perform the data preprocessing that the practitioner now supplies, so that a deployment can be described end to end from raw sensor streams.",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "type": "inject_noise",
+      "parameters": {
+        "fraction": 0.2,
+        "rounding": "ceil",
+        "noise_string": "###@@@%%%^^^&&&***",
+        "target_count": 4,
+        "avoids_blank_summary_rows_when_possible": true
+      },
+      "affected_rows": 4,
+      "affected_paper_ids": [
+        "10.21079/11681/50309",
+        "10.2118/234689-pa",
+        "10.21203/rs.3.rs-10012178/v1",
+        "10.21203/rs.3.rs-10178277/v1"
+      ],
+      "changes": [
+        {
+          "paper_id": "10.21079/11681/50309",
+          "noise": "###@@@%%%^^^&&&***",
+          "before": "The US Army Corps of Engineers (USACE) Civil Works (CW) research and development (R&D) mission is to address challenging environmental sustainability problems through innovative science and engineering, which helps to ensure a safer, more prosperous, and more resilient nation. To achieve this, the US Army Engineer Research and Development Center (ERDC) plans, executes, leads, and directs many R&D programs in coordination with USACE Headquarters, Districts, and Divisions through its multiple strategic focus areas, which include infrastructure, water modeling, crisis preparedness, ecosystem, sediment management, data, artificial intelligence, and robotics. In this process, much information is generated, including internal progress reviews, financial reports, scopes of work, work package planning, and success stories.",
+          "after": "The US Army Corps of Engineers (USACE) Civil Works (CW) research and development (R&D) mission is to address challenging environmental sustainability problems through innovative science and engineering, which helps to ensure a safer, more prosperous, and more resilient nation. To achieve this, the US Army Engineer Research and Development Center (ERDC) plans, executes, leads, and directs many R&D programs in coordination with USACE Headquarters, Districts, and Divisions through its multiple strategic focus areas, which include infrastructure, water modeling, crisis preparedness, ecosystem, sediment management, data, artificial intelligence, and robotics. In this process, much information is generated, including internal progress reviews, financial reports, scopes of work, work package planning, and success stories. ###@@@%%%^^^&&&***"
+        },
+        {
+          "paper_id": "10.2118/234689-pa",
+          "noise": "###@@@%%%^^^&&&***",
+          "before": "Summary In high-risk industrial settings, leveraging large language models (LLMs) for automated accident analysis and generating safety reports has emerged as an efficient workflow. However, this approach is fundamentally constrained by the models’ inherent knowledge limitations, frequently resulting in analyses that lack domain-specific understanding and regulatory alignment. To tackle this issue, we introduce SafeRAG, a multistage retrieval-augmented framework for safety report generation. Specifically, the framework uses an entity-centric approach that prompts the LLMs to internally generate domain-specific knowledge. Concurrently, it performs a hierarchical retrieval of external regulations relevant to the accident at topic, concept, and context levels. To obtain well-structured reports, we leverage prompt engineering, integrating internal and external knowledge. Furthermore, a domain-expert persona is also assigned to help LLMs analyze accidents from a specific perspective. To evaluate our approach, we construct a data set from 10,818 accident-description/report pairs collected from real-world industry reports. Experiments show that SafeRAG substantially outperforms baseline LLMs on metrics that include bidirectional encoder representations from transformers (BERTScore) and bidirectional auto-regressive transformers (BARTScore), demonstrating the effectiveness of our approach.",
+          "after": "Summary In high-risk industrial settings, leveraging large language models (LLMs) for automated accident analysis and generating safety reports has emerged as an efficient workflow. However, this approach is fundamentally constrained by the models’ inherent knowledge limitations, frequently resulting in analyses that lack domain-specific understanding and regulatory alignment. To tackle this issue, we introduce SafeRAG, a multistage retrieval-augmented framework for safety report generation. Specifically, the framework uses an entity-centric approach that prompts the LLMs to internally generate domain-specific knowledge. Concurrently, it performs a hierarchical retrieval of external regulations relevant to the accident at topic, concept, and context levels. To obtain well-structured reports, we leverage prompt engineering, integrating internal and external knowledge. Furthermore, a domain-expert persona is also assigned to help LLMs analyze accidents from a specific perspective. To evaluate our approach, we construct a data set from 10,818 accident-description/report pairs collected from real-world industry reports. Experiments show that SafeRAG substantially outperforms baseline LLMs on metrics that include bidirectional encoder representations from transformers (BERTScore) and bidirectional auto-regressive transformers (BARTScore), demonstrating the effectiveness of our approach. ###@@@%%%^^^&&&***"
+        },
+        {
+          "paper_id": "10.21203/rs.3.rs-10012178/v1",
+          "noise": "###@@@%%%^^^&&&***",
+          "before": "Abstract Enterprise adoption of artificial intelligence (AI) systems, including Generative AI (GenAI), Retrieval-Augmented Generation (RAG), and agentic AI, is advancing faster than many organizations can adapt their governance, audit, cybersecurity, and executive oversight practices. This paper develops a proposed integrated AI governance prioritization architecture using a design-science research approach, supported by exploratory platform-risk analysis, a reproducible platform-risk dataset, a Monte Carlo robustness assessment, a framework coverage matrix, a Governance Priority Score (GPS)-based demonstration, and a public-document relevance assessment. The primary contribution is an integrated governance decision-support architecture that uses the Enterprise AI Platform Taxonomy (EAPT) to estimate platform burden, the Enterprise AI Risk Taxonomy (EART) to organize governance-risk exposure, the Enterprise AI Governance Maturity Model (EAGM) to represent organizational readiness, and the Integrated Agentic AI Governance Framework (IAGF) to identify agentic AI oversight requirements within a unified workflow. These components are operationally connected through GPS, which links platform burden, governancerisk gaps, organizational readiness, agentic runtime-control needs, and executive decision support. The proposed architecture draws upon NIST AI RMF, NIST AI 600-1, ISO/IEC 42001, COBIT, OWASP LLM Top 10, MITRE ATLAS, the EU AI Act, and related AI governance literature. A rubric-based analytical dataset covering 19 enterprise AI platforms evaluates each platform across eight subdimensions, with final platform-risk scores computed as the arithmetic mean of data access scope, operational autonomy, tool/API integration breadth, external connectivity, governance burden, cybersecurity exposure, adoption and shadow-AI risk, and supply-chain integrity. TThe expanded scoring method produces high rank stability relative to the original final-score dataset, with Spearman’s ρ = 0.996, and remains directionally stable under coding-uncertainty stress testing; these results are interpreted only as internal coding stability and robustness, not external validation. Public evidence from U.S. government agencies, universities, healthcare systems, and financial institutions is used to assess architecture relevance and observability, not to claim organizational effectiveness. The paper contributes a bounded design-science foundation for future inter-rater reliability testing, Delphi expert validation, organizational pilots, psychometric evaluation, and dashboard usability assessment.",
+          "after": "Abstract Enterprise adoption of artificial intelligence (AI) systems, including Generative AI (GenAI), Retrieval-Augmented Generation (RAG), and agentic AI, is advancing faster than many organizations can adapt their governance, audit, cybersecurity, and executive oversight practices. This paper develops a proposed integrated AI governance prioritization architecture using a design-science research approach, supported by exploratory platform-risk analysis, a reproducible platform-risk dataset, a Monte Carlo robustness assessment, a framework coverage matrix, a Governance Priority Score (GPS)-based demonstration, and a public-document relevance assessment. The primary contribution is an integrated governance decision-support architecture that uses the Enterprise AI Platform Taxonomy (EAPT) to estimate platform burden, the Enterprise AI Risk Taxonomy (EART) to organize governance-risk exposure, the Enterprise AI Governance Maturity Model (EAGM) to represent organizational readiness, and the Integrated Agentic AI Governance Framework (IAGF) to identify agentic AI oversight requirements within a unified workflow. These components are operationally connected through GPS, which links platform burden, governancerisk gaps, organizational readiness, agentic runtime-control needs, and executive decision support. The proposed architecture draws upon NIST AI RMF, NIST AI 600-1, ISO/IEC 42001, COBIT, OWASP LLM Top 10, MITRE ATLAS, the EU AI Act, and related AI governance literature. A rubric-based analytical dataset covering 19 enterprise AI platforms evaluates each platform across eight subdimensions, with final platform-risk scores computed as the arithmetic mean of data access scope, operational autonomy, tool/API integration breadth, external connectivity, governance burden, cybersecurity exposure, adoption and shadow-AI risk, and supply-chain integrity. TThe expanded scoring method produces high rank stability relative to the original final-score dataset, with Spearman’s ρ = 0.996, and remains directionally stable under coding-uncertainty stress testing; these results are interpreted only as internal coding stability and robustness, not external validation. Public evidence from U.S. government agencies, universities, healthcare systems, and financial institutions is used to assess architecture relevance and observability, not to claim organizational effectiveness. The paper contributes a bounded design-science foundation for future inter-rater reliability testing, Delphi expert validation, organizational pilots, psychometric evaluation, and dashboard usability assessment. ###@@@%%%^^^&&&***"
+        },
+        {
+          "paper_id": "10.21203/rs.3.rs-10178277/v1",
+          "noise": "###@@@%%%^^^&&&***",
+          "before": "Abstract Time-series foundation models and retrieval-based augmentation have recently emerged as relevant tools for financial forecasting, yet it remains unclear when explicit historical retrieval helps a pre-trained probabilistic forecaster in noisy equity settings. This study evaluates that question through Cross-Market Retrieval-Augmented Lag-Llama (CM-RAF-Lag-Llama), a controlled framework for comparing Lag-Llama-only forecasts with retrieval-augmented forecasts across emerging and developed market panels. The main validation uses three balanced seven-asset panels, IDX7, US7, and JP7, producing a 48-configuration panel-context-horizon grid across four context lengths and four prediction horizons. The hybrid system retrieves analogous historical windows from an indexed memory and blends the retrieved continuation with the Lag-Llama forecast while preserving the same forecasting backbone. In the same-backbone return validation, at least one retrieval variant reduces Lag-Llama MSE in all 48 configurations, with aggregate lower-error retrieval MSE reductions of 28.85\\% for IDX7, 27.27\\% for US7, and 33.60\\% for JP7. A second OHLCV-derived stock-feature experiment evaluates log-price, log-volume, range-volatility, and 20-day realized-volatility targets across 72 matched configurations. In that experiment, validation-selected RAF reduces MSE relative to Lag-Llama-only in 68 of 72 configurations and records the lowest MSE among the compared systems in 22 configurations, including 17 of 18 non-log-price US7 settings. A mechanism-level single-series ablation further compares Lag-Llama-only against Lag-Llama + RAF under zero-shot and scheduler-based inference, showing that retrieval effects are horizon-sensitive. The results indicate that retrieval can serve as an external-memory correction for Lag-Llama under selected equity targets, especially when volatility or volume structure provides reusable historical analogs.",
+          "after": "Abstract Time-series foundation models and retrieval-based augmentation have recently emerged as relevant tools for financial forecasting, yet it remains unclear when explicit historical retrieval helps a pre-trained probabilistic forecaster in noisy equity settings. This study evaluates that question through Cross-Market Retrieval-Augmented Lag-Llama (CM-RAF-Lag-Llama), a controlled framework for comparing Lag-Llama-only forecasts with retrieval-augmented forecasts across emerging and developed market panels. The main validation uses three balanced seven-asset panels, IDX7, US7, and JP7, producing a 48-configuration panel-context-horizon grid across four context lengths and four prediction horizons. The hybrid system retrieves analogous historical windows from an indexed memory and blends the retrieved continuation with the Lag-Llama forecast while preserving the same forecasting backbone. In the same-backbone return validation, at least one retrieval variant reduces Lag-Llama MSE in all 48 configurations, with aggregate lower-error retrieval MSE reductions of 28.85\\% for IDX7, 27.27\\% for US7, and 33.60\\% for JP7. A second OHLCV-derived stock-feature experiment evaluates log-price, log-volume, range-volatility, and 20-day realized-volatility targets across 72 matched configurations. In that experiment, validation-selected RAF reduces MSE relative to Lag-Llama-only in 68 of 72 configurations and records the lowest MSE among the compared systems in 22 configurations, including 17 of 18 non-log-price US7 settings. A mechanism-level single-series ablation further compares Lag-Llama-only against Lag-Llama + RAF under zero-shot and scheduler-based inference, showing that retrieval effects are horizon-sensitive. The results indicate that retrieval can serve as an external-memory correction for Lag-Llama under selected equity targets, especially when volatility or volume structure provides reusable historical analogs. ###@@@%%%^^^&&&***"
+        }
+      ]
+    },
+    {
+      "type": "truncate_title",
+      "parameters": {
+        "fraction_of_eligible_rows": 0.2,
+        "rounding": "ceil",
+        "minimum_original_length": 8,
+        "maximum_result_length": 7,
+        "eligible_rows": 19,
+        "target_count": 4
+      },
+      "affected_rows": 4,
+      "affected_paper_ids": [
+        "10.1007/s10278-026-02086-9",
+        "10.1093/sleep/zsag091.0346",
+        "10.20944/preprints202604.0339.v1",
+        "10.20944/preprints202608.1849.v1"
+      ],
+      "changes": [
+        {
+          "paper_id": "10.1007/s10278-026-02086-9",
+          "before": "JADE-Plus: A Multimodal Agentic Retrieval-Augmented Generation Large Language Framework for Diagnostic Support in Jawbone Lesions: Development and Technical Validation Study",
+          "after": "JADE-Pl",
+          "length_before": 173,
+          "length_after": 7
+        },
+        {
+          "paper_id": "10.1093/sleep/zsag091.0346",
+          "before": "0346 Retrieval Augmented Generation Improves Large Language Model Performance in Sleep Medicine",
+          "after": "0346 Re",
+          "length_before": 95,
+          "length_after": 7
+        },
+        {
+          "paper_id": "10.20944/preprints202604.0339.v1",
+          "before": "Retrieval-Augmented Large Language Model Agents for Automated Scientific Literature Review Generation",
+          "after": "Retriev",
+          "length_before": 101,
+          "length_after": 7
+        },
+        {
+          "paper_id": "10.20944/preprints202608.1849.v1",
+          "before": "An Agentic Retrieval-Augmented Vision-Language Recommendation System for Hyperdimensional Encoding Optimization",
+          "after": "An Agen",
+          "length_before": 111,
+          "length_after": 7
+        }
+      ]
+    },
+    {
+      "type": "stale_date",
+      "parameters": {
+        "fraction": 0.2,
+        "rounding": "ceil",
+        "reference_date_utc": "2026-09-26",
+        "days_lagged": 365,
+        "target_date": "2025-09-26",
+        "target_count": 4,
+        "valid_date_candidates": 19
+      },
+      "affected_rows": 4,
+      "affected_paper_ids": [
+        "10.1007/s10278-026-02086-9",
+        "10.1093/sleep/zsag091.0346",
+        "10.20944/preprints202604.0339.v1",
+        "10.20944/preprints202608.1849.v1"
+      ],
+      "changes": [
+        {
+          "paper_id": "10.1007/s10278-026-02086-9",
+          "before": "2026-07-13",
+          "after": "2025-09-26",
+          "days_lagged": 365
+        },
+        {
+          "paper_id": "10.1093/sleep/zsag091.0346",
+          "before": "2026-05-08",
+          "after": "2025-09-26",
+          "days_lagged": 365
+        },
+        {
+          "paper_id": "10.20944/preprints202604.0339.v1",
+          "before": "2026-04-06",
+          "after": "2025-09-26",
+          "days_lagged": 365
+        },
+        {
+          "paper_id": "10.20944/preprints202608.1849.v1",
+          "before": "2026-08-26",
+          "after": "2025-09-26",
+          "days_lagged": 365
+        }
+      ]
+    },
+    {
+      "type": "duplicate_rows",
+      "parameters": {
+        "fraction": 0.1,
+        "rounding": "ceil",
+        "target_duplicate_rows": 2,
+        "rows_before_duplication": 19,
+        "rows_after_duplication": 21
+      },
+      "affected_rows": 2,
+      "affected_paper_ids": [
+        "10.1007/s10278-026-02086-9",
+        "10.1093/sleep/zsag091.0346"
+      ],
+      "changes": [
+        {
+          "paper_id": "10.1007/s10278-026-02086-9",
+          "source_row_position": 0,
+          "duplicate_copy_number": 1
+        },
+        {
+          "paper_id": "10.1093/sleep/zsag091.0346",
+          "source_row_position": 1,
+          "duplicate_copy_number": 1
+        }
+      ]
+    }
+  ]
+}
